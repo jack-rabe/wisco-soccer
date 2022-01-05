@@ -1,4 +1,6 @@
 import requests
+import sys
+import json
 from bs4 import BeautifulSoup
 from urls import get_roster_url, get_schedule_url, get_stats_url
 
@@ -20,14 +22,14 @@ def parse_schedule(team_name, year=2021):
             home_team = other_team
             away_team = team_name
 
-        json = {
+        game_json = {
           'date': f'{game.contents[1].contents[0].strip()} {year}',
           'outcome': game.find(class_='scheduleListResult').contents[0].strip(),
           'score': game.find(class_='game_link_referrer').contents[0].strip(),
           'home': home_team,
           'away': away_team
          }
-        games_array.append(json)
+        games_array.append(game_json)
     return games_array
 
 # some teams do not have roster pages
@@ -38,5 +40,6 @@ def parse_roster(team_name, year=2021):
         url = get_stats_url(team_name, year)
     
 
-
-print(parse_schedule('Winnebago Lutheran', 2014))
+team_name, date = sys.argv[1], sys.argv[2]
+response = json.dumps(parse_schedule(team_name, date))
+print(response)

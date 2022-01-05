@@ -3,9 +3,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 # import appropriate Selenium errors!
 
-# make the driver headless
 op = webdriver.ChromeOptions()
 op.add_argument('headless')
+agent = r'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/96.0.4664.110 Safari/537.36'
+op.add_argument(f'user-agent={agent}')
 driver = webdriver.Chrome(executable_path=os.path.abspath('chromedriver.exe'), options=op)
 driver.implicitly_wait(10) # poll for the element for 10 seconds
 
@@ -34,7 +35,7 @@ def get_schedule_url(team_name, year, last_request=False):
 
     current_url = driver.current_url
     if last_request:
-        driver.close()
+        driver.quit()
     return current_url
 
 
@@ -61,3 +62,4 @@ def get_stats_url(team_name, year):
 # generate xpath for links on a team home page
 def get_xpath(text):
     return f'//a[text()="{text}"]'
+    
