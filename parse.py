@@ -12,8 +12,8 @@ def parse_schedule(team_name, year=2021):
 
     games_array = []
     for game in games:
-        other_team = game.find(class_='teamName').contents[0]
-        game_location = game.contents[5].find(class_='scheduleListTeam').contents[0]
+        other_team = extract_contents(game.find(class_='teamName'))
+        game_location = extract_contents(game.contents[5].find(class_='scheduleListTeam'))
         is_home_game = '@' not in game_location
         if is_home_game:
             home_team = team_name
@@ -22,24 +22,68 @@ def parse_schedule(team_name, year=2021):
             home_team = other_team
             away_team = team_name
 
-        game_json = {
-          'date': f'{game.contents[1].contents[0].strip()} {year}',
-          'outcome': game.find(class_='scheduleListResult').contents[0].strip(),
-          'score': game.find(class_='game_link_referrer').contents[0].strip(),
-          'home': home_team,
-          'away': away_team
-         }
-        games_array.append(game_json)
+        dateTag = game.contents[1]
+        outcomeTag = game.find(class_='scheduleListResult')
+        scoreTag = game.find(class_='game_link_referrer')
+        try:
+            game_json = {
+            'date': f'{extract_contents(dateTag)} {year}',
+            'outcome': extract_contents(outcomeTag),
+            'score': extract_contents(scoreTag),
+            'home': home_team,
+            'away': away_team
+            }
+            games_array.append(game_json)
+        except Exception as e:
+            pass
+
     return games_array
 
 # some teams do not have roster pages
 def parse_roster(team_name, year=2021):
     try:
         url = get_roster_url(team_name, year)
-    except Exception:
-        url = get_stats_url(team_name, year)
+        roster_page = requests.get(url)
+        parsed_page = BeautifulSoup(roster_page.content, 'html.parser')
+        roster_table = parsed_page.find(id='rosterListingTableBodyPlayer')
+
+        players = []
+        for row in roster_table.contents:
+            # filter out navigable strings
+            if hasattr(row, 'contents'):
+                numTag = row.find(class_='number')
+                nameTag = row.find(class_='name').find('a')
+                posTag = row.find(class_='position')
+                gradYearTag = row.contents[-2]
+                try:
+                    player_json = {
+                        'num': extract_contents(numTag),
+                        'name': extract_contents(nameTag),
+                        'pos': extract_contents(posTag),
+                        'gradYear': extract_contents(gradYearTag)
+                    }
+                    players.append(player_json)
+                except Exception as e:
+                    pass
+        return players
+    except Exception as e:
+        # url = get_stats_url(team_name, year)
+        print(e)
     
+    # returns a list of all team
+def parse_teams(conference='all'):
+    pass
+
+def extract_contents(tag):
+    if hasattr(tag, 'contents') and len(tag.contents) > 0:
+        return tag.contents[0].strip()
+    else:
+        return None
 
 team_name, date = sys.argv[1], sys.argv[2]
 response = json.dumps(parse_schedule(team_name, date))
 print(response)
+
+# team_name, date = sys.argv[1], sys.argv[2]
+# response = json.dumps(parse_roster(team_name, date))
+# print(response)

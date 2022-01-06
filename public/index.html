@@ -7,7 +7,17 @@
 
 	<body>
 		<h1>WI Soccer</h1>
-        <form method="post">
+		<h2>Schedule</h2>
+        <form id="scheduleForm" method="post">
+            <label for="teamName">Team name:</label><br>
+            <input type="text" name="teamName" placeholder="Winnebago Lutheran"><br>
+            <label for="year">Year:</label><br>
+            <input type="number" name="year" min="2010" max="2021" placeholder="2021"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+		<h2>Roster</h2>
+        <form id="rosterForm">
             <label for="teamName">Team name:</label><br>
             <input type="text" name="teamName" placeholder="Winnebago Lutheran"><br>
             <label for="year">Year:</label><br>
