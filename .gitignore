@@ -2,3 +2,4 @@
 chromedriver.exe
 /node_modules
 /wis_venv
+.vscode/
