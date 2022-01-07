@@ -1,8 +1,9 @@
 import requests
 import sys
 import json
+import logging
 from bs4 import BeautifulSoup
-from urls import get_roster_url, get_schedule_url, get_stats_url
+from urls import get_roster_url, get_schedule_url, get_stats_url, set_up_driver
 
 def parse_schedule(team_name, year=2021):
     url = get_schedule_url(team_name, year, last_request=True)
@@ -39,7 +40,7 @@ def parse_schedule(team_name, year=2021):
 
     return games_array
 
-# some teams do not have roster pages
+# some teams do not have roster pages, in this case, there will be no positions
 def parse_roster(team_name, year=2021):
     try:
         url = get_roster_url(team_name, year)
@@ -64,13 +65,23 @@ def parse_roster(team_name, year=2021):
                     }
                     players.append(player_json)
                 except Exception as e:
-                    pass
+                    logging.error('Could not extract contents of a player', exc_info=True)
         return players
     except Exception as e:
-        # url = get_stats_url(team_name, year)
-        print(e)
+        url = get_stats_url(team_name, year)
+        stats_page = requests.get(url)
+        parsed_page = BeautifulSoup(stats_page.content, 'html.parser')
+        stats_table = parsed_page.find(class_='NginTableWrapper')
+        players = stats_table.find_all(class_='odd') + stats_table.find_all(class_='even')
+
+        for player in players:
+            player_json = {
+                'num': extract_contents(player.find(class_='jersey-number')),
+                'name': extract_contents(player.find(class_='statPlayer').find('a'))
+            }
+            print(player_json)
     
-    # returns a list of all team
+# returns a list of all team
 def parse_teams(conference='all'):
     pass
 
@@ -80,10 +91,12 @@ def extract_contents(tag):
     else:
         return None
 
-team_name, date = sys.argv[1], sys.argv[2]
-response = json.dumps(parse_schedule(team_name, date))
-print(response)
+set_up_driver()
 
 # team_name, date = sys.argv[1], sys.argv[2]
-# response = json.dumps(parse_roster(team_name, date))
+# response = json.dumps(parse_schedule(team_name, date))
 # print(response)
+
+team_name, date = sys.argv[1], sys.argv[2]
+response = json.dumps(parse_roster(team_name, date))
+print(response)
