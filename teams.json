@@ -1,0 +1,387 @@
+{
+	"Badger - West":	[
+		"Baraboo",
+		"Edgewood",
+		"Monroe",
+		"Mount Horeb",
+		"Oregon",
+		"Portage/Poynette",
+		"Reedsburg",
+		"Sauk Prairie"
+	],
+	"Badger - East":	[
+		"Beaver Dam",
+		"DeForest",
+		"Fort Atkinson",
+		"Milton",
+		"Monona Grove",
+		"Stoughton",
+		"Watertown",
+		"Waunakee"
+	],
+	"Bay":	[
+		"Green Bay East",
+		"Green Bay West",
+		"Menasha",
+		"New London",
+		"Seymour",
+		"Shawano",
+		"West De Pere",
+		"Xavier"
+	],
+	"Big East":	[
+		"Cedar Grove-Belgium",
+		"Howards Grove",
+		"Kohler",
+		"Oostburg",
+		"Ozaukee",
+		"Random Lake",
+		"Sheboygan Christian/Lutheran",
+		"St. Mary Catholic"
+	],
+	"Big Eight":	[
+		"Beloit Memorial",
+		"Janesville Craig",
+		"Janesville Parker",
+		"Madison East",
+		"Madison La Follette",
+		"Madison Memorial",
+		"Madison West",
+		"Middleton",
+		"Sun Prairie",
+		"Verona"
+	],
+	"Big Rivers":	[
+		"Chippewa Falls",
+		"Eau Claire Memorial",
+		"Eau Claire North",
+		"Hudson",
+		"Menomonie",
+		"New Richmond",
+		"Rice Lake",
+		"River Falls"
+	],
+	"Capitol":	[
+		"Cambridge/Deerfield",
+		"Columbus",
+		"Lake Mills",
+		"Lakeside Lutheran",
+		"Lodi",
+		"Sugar River",
+		"Watertown Luther Prep",
+		"Wisconsin Dells",
+		"Wisconsin Heights/Barneveld"
+	],
+	"Central Wisconsin":	[
+		"Amherst",
+		"Columbus Catholic",
+		"Gresham/Bowler",
+		"Newman Catholic",
+		"Northland Lutheran",
+		"Pacelli",
+		"Tri-County",
+		"Wisconsin Valley Lutheran"
+	],
+	"Classic Eight":	[
+		"Arrowhead",
+		"Catholic Memorial",
+		"Kettle Moraine",
+		"Mukwonago",
+		"Muskego",
+		"Oconomowoc",
+		"Waukesha North",
+		"Waukesha South",
+		"Waukesha West"
+	],
+	"East Central":	[
+		"Berlin",
+		"Kettle Moraine Lutheran",
+		"Kewaskum",
+		"Plymouth",
+		"Ripon",
+		"Waupun",
+		"Winneconne"
+	],
+	"EWC/Packerland":	[
+		"Algoma",
+		"Gibraltar/Sevastopol",
+		"Green Bay NEW Lutheran/PA",
+		"Kewaunee",
+		"Kiel",
+		"New Holstein/EL-G",
+		"Peshtigo",
+		"Roncalli/Two Rivers",
+		"Sheboygan Falls",
+		"Sturgeon Bay"
+	],
+	"Flyway":	[
+		"Campbellsport",
+		"Central Wisc. Christian",
+		"H/D United",
+		"Lomira",
+		"Lourdes/Valley Christian",
+		"Mayville",
+		"NFDL/Oakfield/Springs",
+		"Omro",
+		"Saint Lawrence Seminary",
+		"Wayland Academy",
+		"Winnebago Lutheran"
+	],
+	"Fox River Classic":	[
+		"Ashwaubenon",
+		"Bay Port",
+		"De Pere",
+		"Green Bay Preble",
+		"Green Bay Southwest",
+		"Manitowoc Lincoln",
+		"Notre Dame",
+		"Pulaski",
+		"Sheboygan North",
+		"Sheboygan South"
+	],
+	"Fox Valley Association":	[
+		"Appleton East",
+		"Appleton North",
+		"Fond du Lac",
+		"Hortonville",
+		"Kaukauna",
+		"Kimberly",
+		"Neenah",
+		"Oshkosh North",
+		"Oshkosh West"
+	],
+	"Great Northern":	[
+		"Antigo",
+		"Lakeland",
+		"Medford",
+		"Mosinee",
+		"Northland Pines",
+		"Rhinelander"
+	],
+	"Greater Metro":	[
+		"Brookfield Central",
+		"Brookfield East",
+		"Germantown",
+		"Marquette University",
+		"Menomonee Falls",
+		"Sussex Hamilton",
+		"Wauwatosa East",
+		"Wauwatosa West",
+		"West Allis Hale"
+	],
+	"Heart O'North":	[
+		"Ashland",
+		"Barron",
+		"Cumberland",
+		"Hayward",
+		"Spooner/Shell Lake",
+		"Unity/St. Croix Falls",
+		"Washburn/Bayfield"
+	],
+	"Independent":	[
+		"Arcadia",
+		"Arrowhead Varsity Reserve",
+		"Bay City Christian",
+		"Calvary Baptist",
+		"Driftless United Futbol",
+		"Eagle Christian",
+		"Eau Claire Immanuel Lutheran",
+		"Grace Christian",
+		"GB Preble Varsity Reserve",
+		"Fox Valley Home School",
+		"Madison Country Day/AL/SA",
+		"Madison Home School",
+		"Messmer",
+		"McDonell/Regis",
+		"Middleton Varsity Reserve",
+		"Montello/Westfield",
+		"Mountaintop Christian",
+		"New Richmond JV",
+		"Rock County Christian",
+		"SWCHA",
+		"Union Grove Christian",
+		"Valley Christian (Osceola)",
+		"Washington Island",
+		"Stockbridge",
+		"Appleton West"
+	],
+	"Lake City":	[
+		"Cristo Rey Jesuit",
+		"Eastbrook Academy",
+		"Faith Christian",
+		"Saint Anthony",
+		"Salam",
+		"St. Augustine Prep",
+		"University Lake/Trinity Acad.",
+		"Veritas/Tenor"
+	],
+	"Lake Superior":	[
+		"Superior"
+	],
+	"Metro Classic":	[
+		"Dominican",
+		"Kenosha St. Joseph",
+		"Martin Luther",
+		"Racine Lutheran",
+		"Racine St. Catherine's",
+		"Saint Thomas More",
+		"Shoreland Lutheran",
+		"The Prairie School"
+	],
+	"Middle Border":	[
+		"Altoona/Fall Creek",
+		"Amery",
+		"Baldwin-Woodville",
+		"Osceola",
+		"Saint Croix Central",
+		"Somerset"
+	],
+	"Midwest Classic":	[
+		"Brookfield Academy",
+		"Heritage Christian",
+		"Kenosha Christian Life",
+		"Lake Country Lutheran",
+		"Living Word Lutheran",
+		"Saint John's NW/CA",
+		"University School"
+	],
+	"Milwaukee City - Schissler":	[
+		"Milwaukee Arts",
+		"Milwaukee Bay View",
+		"Milw. Bradley Tech",
+		"Milwaukee Hamilton",
+		"Milwaukee School of Languages",
+		"Milwaukee Vincent",
+		"Milw. Washington/CA"
+	],
+	"Milwaukee City - Williams":	[
+		"Milwaukee Audubon",
+		"Carmen South",
+		"Milwaukee King/Juneau",
+		"Milwaukee Marshall/CNW/M",
+		"Milwaukee Pulaski/CSE",
+		"Milwaukee Reagan",
+		"Milwaukee Riverside/Golda Meir",
+		"Milwaukee South"
+	],
+	"Mississippi Valley":	[
+		"Aquinas",
+		"Holmen",
+		"La Crosse Central",
+		"La Crosse Logan",
+		"Onalaska",
+		"Sparta",
+		"Tomah",
+		"West Salem"
+	],
+	"North Eastern":	[
+		"Clintonville",
+		"Denmark",
+		"Fox Valley Lutheran",
+		"Freedom",
+		"Little Chute",
+		"Luxemburg-Casco",
+		"Marinette",
+		"Waupaca",
+		"Wrightstown"
+	],
+	"North Shore":	[
+		"Cedarburg",
+		"Grafton",
+		"Hartford",
+		"Homestead",
+		"Nicolet",
+		"Port Washington",
+		"Slinger",
+		"West Bend East",
+		"West Bend West",
+		"Whitefish Bay"
+	],
+	"Northern Lights":	[
+		"Ironwood (MI)",
+		"Three Lakes/Phelps"
+	],
+	"Rock Valley":	[
+		"Big Foot/Williams Bay",
+		"East Troy/Palmyra-Eagle",
+		"Edgerton",
+		"Evansville",
+		"Jefferson",
+		"McFarland",
+		"Whitewater"
+	],
+	"South Central":	[
+		"Adams-Friendship",
+		"Black River Falls/MM",
+		"Coulee Christian/Providence",
+		"Mauston",
+		"Nekoosa",
+		"Wautoma/Wild Rose"
+	],
+	"Southeast":	[
+		"Franklin",
+		"Kenosha Bradford/Reuther",
+		"Kenosha Indian Trail",
+		"Kenosha Tremper",
+		"Oak Creek",
+		"Racine Case",
+		"Racine Horlick",
+		"Racine Park"
+	],
+	"Southern Lakes":	[
+		"Badger",
+		"Burlington",
+		"Delavan-Darien",
+		"Elkhorn",
+		"Union Grove",
+		"Waterford",
+		"Westosha Central",
+		"Wilmot"
+	],
+	"Southwest Wisconsin":	[
+		"Dodgeville/Mineral Point",
+		"Platteville/Lancaster",
+		"Prairie du Chien/RR/S",
+		"Richland Center",
+		"River Valley"
+	],
+	"Wisconsin Valley":	[
+		"D.C. Everest",
+		"Marshfield",
+		"Merrill",
+		"Stevens Point",
+		"Wausau East",
+		"Wausau West",
+		"Wisconsin Rapids"
+	],
+	"Woodland":	[
+		"Brown Deer",
+		"Cudahy/St. Francis",
+		"Greendale",
+		"Greenfield",
+		"Milwaukee Lutheran",
+		"New Berlin Eisenhower",
+		"New Berlin West",
+		"Pewaukee",
+		"Pius XI Catholic",
+		"Shorewood",
+		"South Milwaukee",
+		"West Allis Central",
+		"Whitnall",
+		"Wisconsin Lutheran"
+	],
+	"X-Inactive":	[
+		"Two Rivers",
+		"Southern Door",
+		"TBD",
+		"Bayfield - see Washburn/Bayfie",
+		"Sheb. Luth. -- see Sheb. Chris",
+		"Viroqua - see Driftless United",
+		"Conserve School",
+		"Saint Mary's Springs",
+		"Phelps",
+		"Academy of Excellence",
+		"Maranatha Baptist Academy",
+		"Phillips"
+	]
+}
