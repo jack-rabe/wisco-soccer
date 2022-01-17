@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
   }
   
   const options = {mode: 'json', args: [teamName, year]}
-	PythonShell.run('./parse.py', options, (err, results) => {
+	PythonShell.run('./scraping/schedules.py', options, (err, results) => {
     if (err) throw err
     res.json(results)
 	})

@@ -1,9 +1,10 @@
-import os
+import logging
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import chromedriver_autoinstaller
 
 driver = None
+HOME_URL = r'https://www.wissports.net/page/show/6397536-teams-2021-' # for 2021 boys season
 
 def set_up_driver():
     global driver
@@ -22,12 +23,11 @@ def navigate_to_team(team_name):
     global driver
 
     try:
-        url = r'https://www.wissports.net/page/show/6397536-teams-2021-' # for 2021 boys season
-        driver.get(url)
+        driver.get(HOME_URL)
         team_link = driver.find_element(By.XPATH, get_xpath(team_name))
         team_link.click()
     except Exception as e:
-        print(e)
+        logging.error(f"Unable to navigae to {team_name}'s page")
 
 
 def change_year(year):
@@ -55,6 +55,19 @@ def get_schedule_url(team_name, year, last_request=False):
         driver.quit()
     return current_url
 
+# def get_conf_schedule_urls(conf_name, year):
+    # global driver
+
+    # driver.get(HOME_URL)
+    # conference = driver.find_element(By.XPATH, )
+    # print(dir(conference))
+    # urls = []
+    # for team in conference:
+        # get_schedule_url(team, year)
+
+    # driver.quit()
+    # return urls
+
 
 # not every team has a roster page
 def get_roster_url(team_name, year):
@@ -62,14 +75,11 @@ def get_roster_url(team_name, year):
 
     navigate_to_team(team_name)
     change_year(year)
-    try:
-        roster_link = driver.find_element(By.XPATH, get_xpath('Roster'))
-        roster_link.click()
-        current__url = driver.current_url
-        driver.quit()
-        return current__url
-    except Exception:
-        return None
+    roster_link = driver.find_element(By.XPATH, get_xpath('Roster'))
+    roster_link.click()
+    current__url = driver.current_url
+    driver.quit()
+    return current__url
 
 
 def get_stats_url(team_name, year):
@@ -85,4 +95,4 @@ def get_stats_url(team_name, year):
 # generate xpath for links on a team home page
 def get_xpath(text):
     return f'//a[text()="{text}"]'
-    
+
