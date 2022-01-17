@@ -17,6 +17,10 @@ def set_up_driver():
     op.add_argument(f'user-agent={agent}')
     driver = webdriver.Chrome(chrome_options=op)
     driver.implicitly_wait(10) # poll for the element for 10 seconds
+
+def close_driver():
+    global driver
+    driver.quit()
     
 
 def navigate_to_team(team_name):
@@ -52,7 +56,7 @@ def get_schedule_url(team_name, year, last_request=False):
 
     current_url = driver.current_url
     if last_request:
-        driver.quit()
+        close_driver()
     return current_url
 
 # def get_conf_schedule_urls(conf_name, year):
@@ -65,7 +69,7 @@ def get_schedule_url(team_name, year, last_request=False):
     # for team in conference:
         # get_schedule_url(team, year)
 
-    # driver.quit()
+    # close_driver()
     # return urls
 
 
@@ -77,9 +81,10 @@ def get_roster_url(team_name, year):
     change_year(year)
     roster_link = driver.find_element(By.XPATH, get_xpath('Roster'))
     roster_link.click()
-    current__url = driver.current_url
-    driver.quit()
-    return current__url
+
+    current_url = driver.current_url
+    close_driver()
+    return current_url
 
 
 def get_stats_url(team_name, year):
@@ -89,7 +94,10 @@ def get_stats_url(team_name, year):
     change_year(year)
     stats_link = driver.find_element(By.XPATH, get_xpath('Player Stats'))
     stats_link.click()
-    return driver.current_url
+
+    current_url = driver.current_url
+    close_driver()
+    return current_url
 
 
 # generate xpath for links on a team home page

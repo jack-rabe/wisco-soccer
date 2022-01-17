@@ -1,5 +1,4 @@
 __pycache__/
-*.pyc
 chromedriver.exe
 /node_modules
 /wis_venv

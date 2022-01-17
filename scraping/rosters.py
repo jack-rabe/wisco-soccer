@@ -35,19 +35,22 @@ def parse_roster(team_name, year=2021):
         return players
     except Exception as e:
         url = get_stats_url(team_name, year)
+        print(url)
         stats_page = requests.get(url)
-        parsed_page = BeautifulSoup(stats_page.content, 'html.parser')
-        stats_table = parsed_page.find(class_='NginTableWrapper')
-        player_tags = stats_table.find_all(class_='odd') + stats_table.find_all(class_='even')
+        try:
+            parsed_page = BeautifulSoup(stats_page.content, 'html.parser')
+            stats_table = parsed_page.find(class_='NginTableWrapper')
+            player_tags = stats_table.find_all(class_='odd') + stats_table.find_all(class_='even')
 
-        for tag in player_tags:
-            player_json = {
-                'num': extract_contents(tag.find(class_='jersey-number')),
-                'name': extract_contents(tag.find(class_='statplayer').find('a'))
-            }
-            players.append(player_json)
-
-        return players
+            for tag in player_tags:
+                player_json = {
+                    'num': extract_contents(tag.find(class_='jersey-number')),
+                    'name': extract_contents(tag.find(class_='statplayer').find('a'))
+                }
+                players.append(player_json)
+            return players
+        except Exception as e:
+            logging.error(f'No player stats exists for {team} in {year}')
 
 set_up_driver()
 team_name, date = sys.argv[1], sys.argv[2]
