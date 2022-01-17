@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 let {PythonShell} = require('python-shell')
 
-router.post('/', (req, res) => {
-  teamName = req.body.teamName
-  year = req.body.year
+router.get('/schedule', (req, res) => {
+  teamName = req.query.teamName
+  year = req.query.year
   if (!year || !teamName){
     res.send('Either no team or year was entered.')
+		return
   }
   
   const options = {mode: 'json', args: [teamName, year]}
