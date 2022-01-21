@@ -29,11 +29,12 @@ def parse_schedule(team_name, year=2021):
         scoreTag = game.find(class_='game_link_referrer')
         try:
             game_json = {
-                    'date': f'{extract_contents(dateTag)} {year}',
+                    'date': f'{extract_contents(dateTag)}, {year}',
                     'outcome': extract_contents(outcomeTag),
                     'score': extract_contents(scoreTag),
                     'home': home_team,
-                    'away': away_team
+                    'away': away_team,
+                    'taken_from': team_name
                     }
             games_array.append(game_json)
         except Exception as e:
