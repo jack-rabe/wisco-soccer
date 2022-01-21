@@ -25,16 +25,18 @@ def parse_schedule(team_name, year=2021):
             away_team = team_name
 
         dateTag = game.contents[1]
-        outcomeTag = game.find(class_='scheduleListResult')
         scoreTag = game.find(class_='game_link_referrer')
+
+        outcome = extract_contents(game.find(class_='scheduleListResult'))
+        winner = team_name if outcome == 'W' else other_team
+        winner = 'tie' if outcome == 'T' else winner
         try:
             game_json = {
                     'date': f'{extract_contents(dateTag)}, {year}',
-                    'outcome': extract_contents(outcomeTag),
+                    'winner': winner,
                     'score': extract_contents(scoreTag),
                     'home': home_team,
-                    'away': away_team,
-                    'taken_from': team_name
+                    'away': away_team
                     }
             games_array.append(game_json)
         except Exception as e:
@@ -42,7 +44,7 @@ def parse_schedule(team_name, year=2021):
 
     return games_array
 
-set_up_driver()
-team_name, date = sys.argv[1], sys.argv[2]
-response = json.dumps(parse_schedule(team_name, date))
-print(response)
+#  set_up_driver()
+#  team_name, date = sys.argv[1], sys.argv[2]
+#  response = json.dumps(parse_schedule(team_name, date))
+#  print(response)
