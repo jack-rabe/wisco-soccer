@@ -1,5 +1,6 @@
 import logging
 import json
+import os
 
 def extract_contents(tag):
     if hasattr(tag, 'contents') and len(tag.contents) > 0:
@@ -10,8 +11,9 @@ def extract_contents(tag):
     else:
         return None
 
+# note file path is relative to root of repo
 def get_teams_by_conference(conference):
-    with open('teams.json') as file:
+    with open(os.path.join('scraping', 'teams.json')) as file:
         all_teams = json.load(file)
         return all_teams[conference]
 
